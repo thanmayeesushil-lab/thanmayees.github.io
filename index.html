@@ -63,8 +63,26 @@
     .hero{display:grid;gap:28px;grid-template-columns:1.2fr .8fr;align-items:center;padding:48px 0}
     .hero .title{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.15;margin:0}
     .hero p{color:var(--muted);margin:.5rem 0 0}
-    .avatar{inline-size:220px;aspect-ratio:1/1;border-radius:24px;background:linear-gradient(135deg,var(--panel),transparent);border:1px solid var(--border);display:grid;place-items:center;justify-self:end;overflow:hidden}
-    .avatar img{width:100%;height:100%;object-fit:cover}
+    /*.avatar{inline-size:220px;aspect-ratio:1/1;border-radius:24px;background:linear-gradient(135deg,var(--panel),transparent);border:1px solid var(--border);display:grid;place-items:center;justify-self:end;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover} */
+    .avatar {
+    width: 200px;       /* Adjust size as needed */
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ensures image fills without distortion */
+    display: block;
+  }
+
+  .avatar svg {
+    width: 100%;
+    height: 100%;
+  }
     section{padding:32px 0;border-top:1px solid var(--border)}
     h2{font-size:1.3rem;margin:.2rem 0 1rem}
     .grid{display:grid;gap:16px}
@@ -126,8 +144,9 @@
           <span class="kbd">Response: 24h</span>
         </div>
       </div>
-      <div class="avatar" aria-hidden="true">
-        <!-- Replace with your photo -->
+      
+     <!-- <div class="avatar" aria-hidden="true">
+        <!-- Replace with your photo 
         <img src="avatar.jpg" alt="Photo of Your Name">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Profile placeholder">
           <defs>
@@ -140,8 +159,30 @@
           <circle cx="100" cy="80" r="36" fill="url(#g)"/>
           <rect x="36" y="130" width="128" height="40" rx="20" fill="#141b33"/>
         </svg>
-      </div>
+    </div> -->
+
+      <div class="avatar" aria-hidden="true">
+  <!-- Updated with caricature photo -->
+  <img src="caricature.png" alt="Fun caricature of a female researcher with laptop"
+       onload="this.nextElementSibling.style.display='none'" 
+       onerror="this.nextElementSibling.style.display='block'">
+
+  <!-- SVG placeholder (only shows if image fails to load) -->
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Profile placeholder" style="display: block;">
+    <defs>
+      <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="#6ee7b7"/>
+        <stop offset="100%" stop-color="#60a5fa"/>
+      </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="#0b1020"/>
+    <circle cx="100" cy="80" r="36" fill="url(#g)"/>
+    <rect x="36" y="130" width="128" height="40" rx="20" fill="#141b33"/>
+  </svg>
+</div>
+
     </section>
+    
 
     <section id="about" aria-labelledby="about-heading">
       <h2 id="about-heading">About</h2>
@@ -280,6 +321,7 @@ My work emphasizes bridging the gap between theoretical concepts and real-world 
   
 </body>
 </html>
+
 
 
 
