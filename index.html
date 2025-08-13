@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name – Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name: projects, skills, experience, and contact details." />
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#111827">
+  <!-- Open Graph (for better link previews) -->
+  <meta property="og:title" content="Your Name – Portfolio">
+  <meta property="og:description" content="Projects, skills, experience, and contact.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="" />
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: #121a2f;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --brand: #6ee7b7; /* mint */
+      --brand-2: #60a5fa; /* blue */
+      --ring: #3b82f6;
+      --code-bg: #0f172a;
+      --border: #1f2a44;
+    }
+    :root.light{
+      --bg: #ffffff;
+      --panel: #f8fafc;
+      --text: #0f172a;
+      --muted: #475569;
+      --brand: #0ea5e9;
+      --brand-2: #10b981;
+      --ring: #0ea5e9;
+      --code-bg: #0b10200d;
+      --border: #e2e8f0;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{color:inherit}
+    .container{max-width:1000px;margin:0 auto;padding:24px}
+    header{
+      position: sticky; top:0; z-index:20;
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 20px color-mix(in oklab, var(--brand) 40%, transparent)}
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap}
+    .nav-links a{padding:8px 10px;border-radius:10px;color:var(--muted);text-decoration:none}
+    .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--text);background:var(--panel)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border:1px solid var(--border);border-radius:999px;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 70%,transparent),transparent);text-decoration:none}
+    .btn:hover{border-color:color-mix(in oklab, var(--ring) 50%, var(--border))}
+    .pill{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);border-radius:999px;padding:.25rem .6rem;color:var(--muted);font-size:.85rem}
+    .hero{display:grid;gap:28px;grid-template-columns:1.2fr .8fr;align-items:center;padding:48px 0}
+    .hero .title{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.15;margin:0}
+    .hero p{color:var(--muted);margin:.5rem 0 0}
+    .avatar{inline-size:220px;aspect-ratio:1/1;border-radius:24px;background:linear-gradient(135deg,var(--panel),transparent);border:1px solid var(--border);display:grid;place-items:center;justify-self:end;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    section{padding:32px 0;border-top:1px solid var(--border)}
+    h2{font-size:1.3rem;margin:.2rem 0 1rem}
+    .grid{display:grid;gap:16px}
+    .grid.cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,color-mix(in oklab, var(--panel) 75%, transparent), transparent);padding:16px}
+    .card h3{margin:.2rem 0 .5rem;font-size:1.05rem}
+    .card p{margin:0;color:var(--muted)}
+    .kbadges{display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem}
+    .kbd{font-family:ui-monospace, Menlo, Consolas, monospace;font-size:.8rem;border:1px solid var(--border);border-bottom-width:2px;border-radius:8px;padding:.25rem .5rem;background:var(--code-bg)}
+    .code{font-family:ui-monospace, Menlo, Consolas, monospace;background:var(--code-bg);padding:.15rem .35rem;border-radius:6px}
+    .list{display:grid;gap:10px}
+    .list li{display:flex;gap:10px}
+    .list strong{min-width:110px}
+    footer{padding:24px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.95rem}
+    /* Responsive */
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr}
+      .avatar{justify-self:start}
+    }
+    /* Print-friendly */
+    @media print{header, .pill, .btn, .nav-links{display:none} body{background:#fff;color:#000}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand">
+          <span class="dot" aria-hidden="true"></span>
+          <a href="#top" class="brand-name" style="text-decoration:none">Your Name</a>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <button id="themeToggle" class="btn" aria-pressed="false" aria-label="Toggle theme">🌓 Theme</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero" aria-labelledby="intro-heading">
+      <div>
+        <span class="pill">Available for freelance & internships</span>
+        <h1 id="intro-heading" class="title">Hi, I’m <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Your Name</span> — a developer who loves building fast, accessible web apps.</h1>
+        <p>
+          Short one-liner about what you do and what you’re looking for. Mention your stack (<span class="code">React</span>, <span class="code">Node</span>, <span class="code">Python</span>) or domain (ML, UI, data viz).
+        </p>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="resume.pdf" download>Download Resume</a>
+          <a class="btn" href="mailto:you@example.com">Email Me</a>
+        </div>
+        <div class="kbadges" aria-label="Quick facts">
+          <span class="kbd">Location: City, Country</span>
+          <span class="kbd">Open to: Remote/On-site</span>
+          <span class="kbd">Response: 24h</span>
+        </div>
+      </div>
+      <div class="avatar" aria-hidden="true">
+        <!-- Replace with your photo -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Profile placeholder">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#6ee7b7"/>
+              <stop offset="100%" stop-color="#60a5fa"/>
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="#0b1020"/>
+          <circle cx="100" cy="80" r="36" fill="url(#g)"/>
+          <rect x="36" y="130" width="128" height="40" rx="20" fill="#141b33"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <p>
+        Write a short bio (3–5 sentences). Focus on outcomes and interests. Example: “I’m a final-year engineering student passionate about computer vision and human‑centered design. I enjoy turning ideas into polished products and collaborating across disciplines.”
+      </p>
+      <ul class="list" role="list">
+        <li><strong>Education</strong> <span>BE in Computer Science, XYZ University (2022–2026)</span></li>
+        <li><strong>Currently</strong> <span>Building a full‑stack app for …</span></li>
+        <li><strong>Looking for</strong> <span>Summer 2026 internships / freelance</span></li>
+      </ul>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Project One – Smart Notes</h3>
+          <p>AI‑assisted note taking app. Summarizes lectures and syncs across devices.</p>
+          <div class="kbadges"><span class="kbd">React</span><span class="kbd">FastAPI</span><span class="kbd">Postgres</span></div>
+          <p style="margin-top:.8rem"><a class="btn" href="#" aria-label="Open Project One live demo">Live</a> <a class="btn" href="#" aria-label="Open Project One source code on GitHub">Code</a></p>
+        </article>
+        <article class="card">
+          <h3>Project Two – Vision Classifier</h3>
+          <p>Trained a CNN to classify plant diseases with 94% accuracy on test set.</p>
+          <div class="kbadges"><span class="kbd">Python</span><span class="kbd">PyTorch</span></div>
+          <p style="margin-top:.8rem"><a class="btn" href="#">Paper</a> <a class="btn" href="#">Code</a></p>
+        </article>
+        <article class="card">
+          <h3>Project Three – Portfolio Starter</h3>
+          <p>This very template. Accessible, responsive, and GitHub Pages ready.</p>
+          <div class="kbadges"><span class="kbd">HTML</span><span class="kbd">CSS</span><span class="kbd">Vanilla JS</span></div>
+          <p style="margin-top:.8rem"><a class="btn" href="#">Template</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="exp-heading">
+      <h2 id="exp-heading">Experience</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Frontend Intern · Acme Corp <span class="muted" style="font-weight:500;color:var(--muted)">— May 2025 – Jul 2025</span></h3>
+          <p>Shipped a UI component library, reducing dev time by 30%. Led performance pass from 63 → 95 Lighthouse.</p>
+          <ul>
+            <li>Built design‑system buttons, forms, and charts.</li>
+            <li>Implemented accessible keyboard navigation.</li>
+            <li>Set up CI for visual regression tests.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <div class="grid cards">
+        <div class="card"><h3>Languages</h3><p>JavaScript, TypeScript, Python, C++</p></div>
+        <div class="card"><h3>Frameworks</h3><p>React, Next.js, Node, Express, FastAPI</p></div>
+        <div class="card"><h3>Tools</h3><p>Git, Docker, PostgreSQL, Figma</p></div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>
+        I’m open to internships, freelance projects, and collaborations. The fastest way to reach me is email.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="mailto:you@example.com" rel="nofollow">you@example.com</a>
+        <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://x.com/yourusername" target="_blank" rel="noopener">X</a>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span>© <span id="year"></span> Your Name</span>
+        <a class="btn" href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // --- Tiny util: keep current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Theme toggle with localStorage
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light') root.classList.add('light');
+    const btn = document.getElementById('themeToggle');
+    function updatePressed(){
+      const isLight = root.classList.contains('light');
+      btn.setAttribute('aria-pressed', String(isLight));
+      btn.title = isLight ? 'Switch to dark' : 'Switch to light';
+    }
+    updatePressed();
+    btn.addEventListener('click', () => {
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      updatePressed();
+    });
+
+    // --- Highlight active nav link on scroll
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const map = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
+    let activeId = '';
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          activeId = entry.target.id;
+          links.forEach(a => a.removeAttribute('aria-current'));
+          map[activeId]?.setAttribute('aria-current','page');
+        }
+      })
+    }, {rootMargin: '-40% 0px -55% 0px', threshold: [0, 1]});
+    sections.forEach(s => obs.observe(s));
+
+    // --- Smooth scroll for internal links (optional)
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(!el) return;
+      e.preventDefault();
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+      history.pushState(null, '', '#' + id);
+    });
+  </script>
+
+  
+</body>
+</html>
